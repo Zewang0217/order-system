@@ -1,0 +1,52 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/order_system?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        auto-startup: true
+    template:
+      exchange: inventory.exchange
+
+# MyBatis-Plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted  # 逻辑删除字段
+      logic-delete-value: 1        # 逻辑已删除值
+      logic-not-delete-value: 0    # 逻辑未删除值
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+
+# JWT配置
+jwt:
+  secret: "Hj82kPZsT9dN4Lx1rB6fQw7mA2uVx5Cz"
+  expiration: 86400000  # 24小时 (24 * 60 * 60 * 1000)
+  header: Authorization
+  token-prefix: Bearer
+
+logging:
+  level:
+    com.example.ordersystem.mapper: DEBUG
+    org.zewang.ordersystem.security: DEBUG
+    org.zewang.ordersystem: INFO
+    org.springframework.amqp: DEBUG
+    org.springframework.rabbit: DEBUG
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/application.log
+
