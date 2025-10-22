@@ -9,9 +9,12 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.zewang.ordersystem.common.exception.BusinessException;
@@ -32,6 +35,7 @@ import org.zewang.ordersystem.enums.OrderStatus;
 import org.zewang.ordersystem.mapper.order.OrderItemMapper;
 import org.zewang.ordersystem.mapper.order.OrderMapper;
 import org.zewang.ordersystem.mapper.product.ProductMapper;
+import org.zewang.ordersystem.mapper.mq.OutboxMapper;
 import org.zewang.ordersystem.service.order.OrderService;
 
 /**
@@ -50,11 +54,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     private final OrderMapper orderMapper;
     private final ProductMapper productMapper;
     private final OrderItemMapper orderItemMapper;
+    private final OutboxMapper outboxMapper;
 
     @Override
     @Transactional // 添加事务
     public CreateOrderResponse createOrder(CreateOrderRequest request) {
-        // 检查库存  （暂时简化处理，后续要添加实际服务
+        // 检查库存  （简化）
         for (CreateOrderRequest.OrderItemRequest item : request.getItems()) {
             Product product = productMapper.selectById(item.getProductId());
             if (product == null) {
@@ -73,6 +78,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setStatus(OrderStatus.PENDING_PAYMENT.name());
         order.setNote(request.getNote());
         order.setCreateTime(LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.now();
+        order.setCreateTime(now);
+        order.setUpdateTime(now);
 
         // 计算总金额
         BigDecimal totalAmount = BigDecimal.ZERO;
@@ -84,9 +92,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setTotalAmount(totalAmount);
         order.setActualAmount(totalAmount);
 
-        LocalDateTime now = LocalDateTime.now();
-        order.setCreateTime(now);
-        order.setUpdateTime(now);
+
 
         orderMapper.insert(order);
 
@@ -112,10 +118,11 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         OutboxMessage outboxMessage = new OutboxMessage();
         outboxMessage.setTopic("order.created");
         outboxMessage.setMessageKey(orderId);
-        outboxMessage.setMessageBody("Order created: " + orderId);
-        outboxMessage.setMessageStatus(OutboxMessage.MessageStatus.PENDING.name());
-        outboxMessage.setRetryCount(3);
-        // outboxMapper.insert(outboxMessage); // 需要注入OutboxMapper
+        outboxMessage.setMessageBody("{\"message\":\"Order created: " + orderId + "\",\"orderId\":\"" + orderId + "\"}");        outboxMessage.setMessageStatus(OutboxMessage.MessageStatus.PENDING.name());
+        outboxMessage.setRetryCount(0);
+        outboxMessage.setMaxRetryCount(3);
+        outboxMessage.setCreatedTime(now);
+        outboxMapper.insert(outboxMessage);
 
         log.info("订单创建成功：{}", orderId);
 
@@ -224,10 +231,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         OutboxMessage outboxMessage = new OutboxMessage();
         outboxMessage.setTopic("order.cancelled");
         outboxMessage.setMessageKey(orderId);
-        outboxMessage.setMessageBody("Order cancelled: " + orderId);
+        outboxMessage.setMessageBody("{\"message\":\"Order cancelled: " + orderId + "\",\"orderId\":\"" + orderId + "\"}");        outboxMessage.setMessageStatus(OutboxMessage.MessageStatus.PENDING.name());
         outboxMessage.setMessageStatus(OutboxMessage.MessageStatus.PENDING.name());
-        outboxMessage.setRetryCount(3);
-        // outboxMapper.insert(outboxMessage); // 需要注入OutboxMapper
+        outboxMessage.setRetryCount(0);
+        outboxMessage.setMaxRetryCount(3);
+        outboxMessage.setCreatedTime(LocalDateTime.now());
+        outboxMapper.insert(outboxMessage);
 
         log.info("订单已取消：{}", orderId);
 
@@ -255,12 +264,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         OutboxMessage outboxMessage = new OutboxMessage();
         outboxMessage.setTopic("order.paid");
         outboxMessage.setMessageKey(orderId);
-        outboxMessage.setMessageBody("Order paid: " + orderId + ", transactionId: " + request.getTransactionId());
-        outboxMessage.setMessageStatus(OutboxMessage.MessageStatus.PENDING.name());
+        outboxMessage.setMessageBody("{\"message\":\"Order paid: " + orderId + "\",\"orderId\":\"" + orderId + "\",\"transactionId\":\"" + request.getTransactionId() + "\"}");        outboxMessage.setMessageStatus(OutboxMessage.MessageStatus.PENDING.name());
+        outboxMessage.setRetryCount(0);
         outboxMessage.setMaxRetryCount(3);
-        // outboxMapper.insert(outboxMessage); // 需要注入OutboxMapper
-
+        outboxMessage.setCreatedTime(LocalDateTime.now());
+        outboxMapper.insert(outboxMessage);
         log.info("订单支付成功: {}", orderId);
+
 
         PaySuccessResponse response = new PaySuccessResponse();
         response.setOrderId(orderId);
@@ -295,12 +305,12 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         OutboxMessage outboxMessage = new OutboxMessage();
         outboxMessage.setTopic("order.retry");
         outboxMessage.setMessageKey(orderId);
-        outboxMessage.setMessageBody("Order retry: " + orderId + ", operator: " + operator + ", reason: " + reason);
-        outboxMessage.setMessageStatus(OutboxMessage.MessageStatus.PENDING.name());
+        outboxMessage.setMessageBody("{\"message\":\"Order retry: " + orderId + "\",\"orderId\":\"" + orderId + "\",\"operator\":\"" + operator + "\",\"reason\":\"" + reason + "\"}");        outboxMessage.setRetryCount(0);
         outboxMessage.setMaxRetryCount(3);
-        // outboxMapper.insert(outboxMessage); // 需要注入OutboxMapper
+        outboxMessage.setCreatedTime(LocalDateTime.now());
+        outboxMapper.insert(outboxMessage);
 
-        log.info("订单消息重发：{}, 操作人：{}, 原因：{}", orderId, operator, reason);
+        log.info("订单消息重发并写入 outbox：{}, 操作人：{}, 原因：{}", orderId, operator, reason);
     }
 
     @Override

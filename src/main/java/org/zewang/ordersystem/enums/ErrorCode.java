@@ -21,7 +21,10 @@ public enum ErrorCode {
     PAID_ORDER(409, "订单已支付"),
     INSUFFICIENT_STOCK(1006, "库存不足"),
     STOCK_UPDATE_FAILED(1007, "库存更新失败"),
-    DEAD_LETTER_NOT_FOUND(1008, "死信消息不存在");
+    DEAD_LETTER_NOT_FOUND(1008, "死信消息不存在"),
+    PAYMENT_CONFLICT(1009, "支付冲突"),
+    PAYMENT_NOT_FOUND(400, "支付不存在"),
+    INVALID_SIGNATURE(1010, "签名错误");
 
 
 

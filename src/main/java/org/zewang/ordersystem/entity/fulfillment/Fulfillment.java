@@ -44,6 +44,12 @@ public class Fulfillment extends BaseEntity {
     @TableField(value = "actual_delivery")
     private LocalDateTime actualDelivery;
 
+    @TableField(value = "retry_count")
+    private Integer retryCount;
+
+    @TableField(value = "last_retry_time")
+    private LocalDateTime lastRetryTime;
+
     public enum FulfillmentStatus {
         PENDING, SHIPPED, IN_TRANSIT, DELIVERED, FAILED
     }

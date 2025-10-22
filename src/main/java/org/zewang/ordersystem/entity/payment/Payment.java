@@ -1,28 +1,17 @@
 package org.zewang.ordersystem.entity.payment;
 
-
-/**
- * @author "Zewang"
- * @version 1.0
- * @description: TODO (这里用一句话描述这个类的作用)
- * @email "Zewang0217@outlook.com"
- * @date 2025/10/17 11:11
- */
-
 import com.baomidou.mybatisplus.annotation.*;
-import org.zewang.ordersystem.entity.BaseEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import java.math.BigDecimal;
+import lombok.Data;
+import org.zewang.ordersystem.entity.BaseEntity;
 import java.time.LocalDateTime;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 @TableName("payments")
 public class Payment extends BaseEntity {
 
-    @TableId(value = "transaction_id", type = IdType.INPUT)
-    private String transactionId;
+    @TableId(value = "payment_id", type = IdType.INPUT)
+    private String paymentId;
 
     @TableField(value = "order_id")
     private String orderId;
@@ -39,20 +28,32 @@ public class Payment extends BaseEntity {
     @TableField(value = "status")
     private String status;
 
-    @TableField(value = "pay_url")
-    private String payUrl;
-
     @TableField(value = "callback_url")
     private String callbackUrl;
 
-    @TableField(value = "third_party_trade_no")
-    private String thirdPartyTradeNo;
+    @TableField(value = "pay_url")
+    private String payUrl;
 
     @TableField(value = "payment_time")
     private LocalDateTime paymentTime;
 
+    // 支付状态枚举
     public enum PaymentStatus {
-        PENDING, PAID, FAILED, CANCELLED, REFUNDED
+        PENDING, PAID, FAILED, REFUNDED
+    }
+
+    // 支付类型枚举
+    public enum PaymentType {
+        ALIPAY, WECHAT_PAY, BANK_TRANSFER
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+            "paymentId='" + paymentId + '\'' +
+            ", orderId='" + orderId + '\'' +
+            ", amount=" + amount +
+            ", status='" + status + '\'' +
+            '}';
     }
 }
-
