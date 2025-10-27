@@ -16,8 +16,14 @@ public final class RabbitConstants {
     public static final String ORDER_EXCHANGE = "order.exchange";
     public static final String ORDER_PROCESSING_QUEUE = "order.processing.queue";
     public static final String ORDER_PROCESSING_ROUTING_KEY = "order.processing";
-    public static final String ORDER_DLQ_QUEUE = "order.dlq";
+    public static final String ORDER_DLQ_QUEUE = "order.dlq.queue";
     public static final String ORDER_DLQ_ROUTING_KEY = "order.dlq";
+    public static final String ORDER_DLQ_EXCHANGE = "order.dlq.exchange";
+
+    // 支付
+    public static final String PAYMENT_EXCHANGE = "payment.exchange";
+    public static final String PAYMENT_SUCCESS_QUEUE = "payment.success.queue";
+    public static final String PAYMENT_SUCCESS_ROUTING_KEY = "payment.success";
 
     // 库存
     public static final String INVENTORY_EXCHANGE = "inventory.exchange";

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.zewang.ordersystem.common.api.ApiResult;
 import org.zewang.ordersystem.common.exception.BusinessException;
+import org.zewang.ordersystem.common.exception.MessageProcessingException;
 
 /**
  * @author "Zewang"
@@ -62,5 +63,11 @@ public class GlobalExceptionHandler {
     public ApiResult<Void> handleException(Exception e) {
         log.error("系统异常: ", e);
         return ApiResult.error(500, "系统内部错误");
+    }
+
+    @ExceptionHandler(MessageProcessingException.class)
+    public ApiResult<Void> handleMessageProcessingException(MessageProcessingException e) {
+        log.error("消息处理异常 - ID: {}, Topic: {}", e.getMessageId(), e.getTopic(), e);
+        return ApiResult.error(500, "消息处理失败: " + e.getMessage());
     }
 }

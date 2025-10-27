@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.zewang.ordersystem.common.api.ApiResult;
+import org.zewang.ordersystem.common.exception.BusinessException;
 import org.zewang.ordersystem.dto.order.CancelOrderResponse;
 import org.zewang.ordersystem.dto.order.CreateOrderRequest;
 import org.zewang.ordersystem.dto.order.CreateOrderResponse;
@@ -22,6 +23,7 @@ import org.zewang.ordersystem.dto.order.OrderPageResponse;
 import org.zewang.ordersystem.dto.order.OrderStatusResponse;
 import org.zewang.ordersystem.dto.order.PaySuccessRequest;
 import org.zewang.ordersystem.dto.order.PaySuccessResponse;
+import org.zewang.ordersystem.enums.ErrorCode;
 import org.zewang.ordersystem.service.order.OrderService;
 
 /**
@@ -74,18 +76,6 @@ public class OrderController {
         return ApiResult.success(200, response);
     }
 
-    @GetMapping("/health")
-    public ApiResult<HealthCheckResponse> healthCheck() {
-        boolean isHealthy = orderService.isOrderServiceHealthy();
-        if (isHealthy) {
-            HealthCheckResponse response = new HealthCheckResponse();
-            response.setTimestamp(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss")));
-            return ApiResult.success(200, response);
-        } else {
-            return ApiResult.error(500, "健康检查失败");
-        }
-    }
-
     @GetMapping("/{orderId}/status")
     public ApiResult<OrderStatusResponse> getOrderStatus(@PathVariable String orderId) {
         OrderStatusResponse response = orderService.getOrderStatus(orderId);
@@ -99,4 +89,19 @@ public class OrderController {
         orderService.retryPublish(orderId, operator, reason);
         return ApiResult.success(200, null);
     }
+
+    @GetMapping("/health")
+    public ApiResult<HealthCheckResponse> checkHealth() {
+        try {
+            boolean isHealthy = orderService.isOrderServiceHealthy();
+
+            HealthCheckResponse response = new HealthCheckResponse();
+            response.setTimestamp(LocalDateTime.now().toString());
+
+            return ApiResult.success(response);
+        } catch (Exception e) {
+            throw new BusinessException(ErrorCode.PARAM_ERROR, "健康检查失败");
+        }
+    }
+
 }

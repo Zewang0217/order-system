@@ -1,5 +1,5 @@
+// RabbitConfig.java
 package org.zewang.ordersystem.config;
-
 
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +9,7 @@ import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.QueueBuilder;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -17,14 +18,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.autoconfigure.amqp.SimpleRabbitListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-/**
- * @author "Zewang"
- * @version 1.0
- * @description: TODO (这里用一句话描述这个类的作用)
- * @email "Zewang0217@outlook.com"
- * @date 2025/10/21 19:55
- */
 
 @Slf4j
 @Configuration
@@ -73,15 +66,17 @@ public class RabbitConfig {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         configurer.configure(factory, connectionFactory);
         factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+        factory.setPrefetchCount(1); // 每次只预取一条消息
+        factory.setConcurrentConsumers(1); // 初始消费者数量
+        factory.setMaxConcurrentConsumers(5); // 最大消费者数量
         return factory;
     }
-
 
     // === 订单 ===
 
     @Bean
-    public DirectExchange orderExchange() {
-        return new DirectExchange(RabbitConstants.ORDER_EXCHANGE);
+    public TopicExchange orderExchange() {
+        return new TopicExchange(RabbitConstants.ORDER_EXCHANGE, true, false);
     }
 
     @Bean
@@ -104,13 +99,12 @@ public class RabbitConfig {
         return BindingBuilder.bind(orderDLQ()).to(orderExchange()).with(RabbitConstants.ORDER_DLQ_ROUTING_KEY);
     }
 
-
     // === 库存 ===
 
     // 主交换机
     @Bean
-    public DirectExchange inventoryExchange() {
-        return new DirectExchange(RabbitConstants.INVENTORY_EXCHANGE);
+    public TopicExchange inventoryExchange() {
+        return new TopicExchange(RabbitConstants.INVENTORY_EXCHANGE, true, false);
     }
 
     // 库存扣减队列
@@ -137,8 +131,8 @@ public class RabbitConfig {
 
     // 死信交换机
     @Bean
-    public DirectExchange inventoryDeadLetterExchange() {
-        return new DirectExchange(RabbitConstants.INVENTORY_DLQ_EXCHANGE);
+    public TopicExchange inventoryDeadLetterExchange() {
+        return new TopicExchange(RabbitConstants.INVENTORY_DLQ_EXCHANGE, true, false);
     }
 
     // 绑定死信队列
@@ -147,6 +141,28 @@ public class RabbitConfig {
         return BindingBuilder.bind(inventoryDeadLetterQueue())
             .to(inventoryDeadLetterExchange())
             .with(RabbitConstants.INVENTORY_DLQ_ROUTING_KEY);
+    }
+
+    // 支付成功交换机
+    @Bean
+    public TopicExchange paymentExchange() {
+        return new TopicExchange(RabbitConstants.PAYMENT_EXCHANGE, true, false);
+    }
+
+    // 支付成功队列
+    @Bean
+    public Queue paymentSuccessQueue() {
+        return QueueBuilder.durable(RabbitConstants.PAYMENT_SUCCESS_QUEUE)
+            .withArgument("x-dead-letter-exchange", RabbitConstants.ORDER_DLQ_EXCHANGE)
+            .build();
+    }
+
+    // 支付成功队列绑定
+    @Bean
+    public Binding paymentSuccessBinding() {
+        return BindingBuilder.bind(paymentSuccessQueue())
+            .to(paymentExchange())
+            .with(RabbitConstants.PAYMENT_SUCCESS_ROUTING_KEY);
     }
 
     // 库存初始化队列
@@ -162,7 +178,7 @@ public class RabbitConfig {
     public Binding inventoryInitBinding() {
         return BindingBuilder.bind(inventoryInitQueue())
             .to(inventoryExchange())
-            .with(RabbitConstants.INVENTORY_INIT_QUEUE);
+            .with(RabbitConstants.INVENTORY_INIT_ROUTING_KEY);
     }
 
     // 库存调整队列
@@ -181,4 +197,3 @@ public class RabbitConfig {
             .with(RabbitConstants.INVENTORY_ADJUST_ROUTING_KEY);
     }
 }
-

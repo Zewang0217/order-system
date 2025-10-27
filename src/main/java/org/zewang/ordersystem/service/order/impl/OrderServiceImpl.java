@@ -18,6 +18,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.zewang.ordersystem.common.exception.BusinessException;
+import org.zewang.ordersystem.dto.fulfillment.FulfillmentCreateRequest;
 import org.zewang.ordersystem.dto.order.CancelOrderResponse;
 import org.zewang.ordersystem.dto.order.CreateOrderRequest;
 import org.zewang.ordersystem.dto.order.CreateOrderResponse;
@@ -36,6 +37,7 @@ import org.zewang.ordersystem.mapper.order.OrderItemMapper;
 import org.zewang.ordersystem.mapper.order.OrderMapper;
 import org.zewang.ordersystem.mapper.product.ProductMapper;
 import org.zewang.ordersystem.mapper.mq.OutboxMapper;
+import org.zewang.ordersystem.service.fulfillment.FulfillmentService;
 import org.zewang.ordersystem.service.order.OrderService;
 
 /**
@@ -55,6 +57,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     private final ProductMapper productMapper;
     private final OrderItemMapper orderItemMapper;
     private final OutboxMapper outboxMapper;
+    private final FulfillmentService fulfillmentService;
 
     @Override
     @Transactional // 添加事务
@@ -251,6 +254,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Transactional
     public PaySuccessResponse paySuccess(String orderId, PaySuccessRequest request) {
         Order order = orderMapper.selectById(orderId);
+        // 幂等性检查
+        if (OrderStatus.PAID.name().equals(order.getStatus())) {
+            throw new BusinessException(ErrorCode.PAID_ORDER);
+        }
         if (order == null) {
             throw new BusinessException(ErrorCode.ORDER_NOT_FOUND);
         }
@@ -259,6 +266,16 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         order.setStatus(OrderStatus.PAID.name());
         order.setPaidTime(LocalDateTime.now());
         orderMapper.updateById(order);
+
+        // 创建发货单
+        FulfillmentCreateRequest fulfillmentCreateRequest = new FulfillmentCreateRequest();
+        fulfillmentCreateRequest.setOrderId(orderId);
+        fulfillmentCreateRequest.setCarrier("默认承运商");
+        fulfillmentCreateRequest.setTrackingNumber("");
+        fulfillmentCreateRequest.setShippingAddress(order.getAddress());
+        fulfillmentCreateRequest.setEstimatedDelivery(LocalDateTime.now().plusDays(3)); // 预计3天后送达
+
+        fulfillmentService.createFulfillment(fulfillmentCreateRequest);
 
         // 发送消息到outbox表（用于异步通知发货服务）
         OutboxMessage outboxMessage = new OutboxMessage();

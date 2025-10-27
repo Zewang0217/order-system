@@ -24,7 +24,9 @@ public enum ErrorCode {
     DEAD_LETTER_NOT_FOUND(1008, "死信消息不存在"),
     PAYMENT_CONFLICT(1009, "支付冲突"),
     PAYMENT_NOT_FOUND(400, "支付不存在"),
-    INVALID_SIGNATURE(1010, "签名错误");
+    INVALID_SIGNATURE(1010, "签名错误"),
+    FULFILLMENT_NOT_FOUND(1011, "发货信息不存在"),
+    FULFILLMENT_ALREADY_EXISTS(1012, "发货已经存在");
 
 
 

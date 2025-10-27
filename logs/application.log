@@ -1,107 +1,399 @@
-2025-10-22 18:45:28.325 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 23444 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
-2025-10-22 18:45:28.330 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
-2025-10-22 18:45:29.760 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-10-22 18:45:29.773 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-10-22 18:45:29.773 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-10-22 18:45:29.820 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-10-22 18:45:29.821 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1446 ms
-2025-10-22 18:45:30.325 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-10-22 18:45:31.561 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-10-22 18:45:32.049 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-10-22 18:45:32.058 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 4.257 seconds (process running for 5.106)
-2025-10-22 18:45:32.107 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-22 18:45:32.108 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-10-22 18:45:32.109 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-10-22 18:45:32.271 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-10-22 18:45:32.555 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1a6fa478
-2025-10-22 18:45:32.558 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-10-22 18:45:32.659 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMDUwNzk5LCJleHAiOjE3NjExMzcxOTl9.mUciXgkRG0ss0sf8_SY7ucinpl4zjAsnpRxXpxw3Bi8
-2025-10-22 18:45:32.660 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMDUwNzk5LCJleHAiOjE3NjExMzcxOTl9.mUciXgkRG0ss0sf8_SY7ucinpl4zjAsnpRxXpxw3Bi8
-2025-10-22 18:45:32.660 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 18:46:30.096 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: null
-2025-10-22 18:46:30.096 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: null
-2025-10-22 18:46:30.096 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: null
-2025-10-22 18:46:49.839 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 18:46:49.839 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 18:46:49.839 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 18:57:06.626 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-10-22 18:57:06.635 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-10-22 18:57:06.644 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-10-22 18:57:06.650 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-10-22 18:57:11.646 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 3684 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
-2025-10-22 18:57:11.651 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
-2025-10-22 18:57:12.869 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-10-22 18:57:12.885 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-10-22 18:57:12.885 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-10-22 18:57:12.934 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-10-22 18:57:12.934 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1236 ms
-2025-10-22 18:57:13.312 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-10-22 18:57:14.483 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-10-22 18:57:14.854 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-10-22 18:57:14.862 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 3.701 seconds (process running for 4.253)
-2025-10-22 18:58:29.574 [http-nio-8080-exec-6] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-22 18:58:29.574 [http-nio-8080-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-10-22 18:58:29.576 [http-nio-8080-exec-6] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2025-10-22 18:58:29.777 [http-nio-8080-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-10-22 18:58:30.101 [http-nio-8080-exec-6] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7cb12c4e
-2025-10-22 18:58:30.102 [http-nio-8080-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-10-22 18:58:30.236 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 18:58:30.237 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 18:58:30.237 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 18:58:30.347 [http-nio-8080-exec-6] ERROR o.z.o.c.e.GlobalExceptionHandler - 业务异常: 订单状态不支持支付
-2025-10-22 18:58:57.875 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 18:58:57.876 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 18:58:57.876 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 18:58:57.900 [http-nio-8080-exec-4] ERROR o.z.o.c.e.GlobalExceptionHandler - 业务异常: 商品不存在
-2025-10-22 18:59:15.751 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 18:59:15.751 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 18:59:15.751 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 18:59:16.327 [http-nio-8080-exec-7] ERROR o.z.o.c.e.GlobalExceptionHandler - 系统异常: 
-org.springframework.dao.DataIntegrityViolationException: 
-### Error updating database.  Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Invalid JSON text: "Invalid value." at position 0 in value for column 'outbox_messages.message_body'.
-### The error may exist in org/zewang/ordersystem/mapper/mq/OutboxMapper.java (best guess)
-### The error may involve org.zewang.ordersystem.mapper.mq.OutboxMapper.insert-Inline
-### The error occurred while setting parameters
-### SQL: INSERT INTO outbox_messages  ( topic, message_key, message_body, message_status, retry_count, max_retry_count,   created_time )  VALUES (  ?, ?, ?, ?, ?, ?,   ?  )
-### Cause: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Invalid JSON text: "Invalid value." at position 0 in value for column 'outbox_messages.message_body'.
-; Data truncation: Invalid JSON text: "Invalid value." at position 0 in value for column 'outbox_messages.message_body'.
-	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:120)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
-	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
-	at jdk.proxy2/jdk.proxy2.$Proxy76.insert(Unknown Source)
-	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:59)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
-	at jdk.proxy2/jdk.proxy2.$Proxy99.insert(Unknown Source)
-	at org.zewang.ordersystem.service.order.impl.OrderServiceImpl.createOrder(OrderServiceImpl.java:126)
+2025-10-27 09:54:40.416 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 33372 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
+2025-10-27 09:54:40.424 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-27 09:54:42.133 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-27 09:54:42.147 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-27 09:54:42.147 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27 09:54:42.201 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-27 09:54:42.201 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1684 ms
+2025-10-27 09:54:42.622 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-27 09:54:43.729 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-10-27 09:54:44.140 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 09:54:44.141 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 09:54:44.142 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 09:54:44.142 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 09:54:44.193 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-27 09:54:44.194 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-10-27 09:54:44.196 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-10-27 09:54:44.250 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#1182413a:0/SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055]
+2025-10-27 09:54:44.254 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 09:54:44.265 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:54:44.271 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x00000254206f4510 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@70aa58e1 Shared Rabbit Connection: SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055]
+2025-10-27 09:54:44.271 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 09:54:44.277 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:54:44.278 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'order.exchange' in vhost '/': received 'topic' but current is 'direct', class-id=40, method-id=10)
+2025-10-27 09:54:45.281 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 09:54:45.281 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x00000254206f4510 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@70aa58e1 Shared Rabbit Connection: SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055]
+2025-10-27 09:54:45.282 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 09:54:45.287 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'order.exchange' in vhost '/': received 'topic' but current is 'direct', class-id=40, method-id=10)
+2025-10-27 09:54:45.287 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:54:47.289 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 09:54:47.290 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x00000254206f4510 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@70aa58e1 Shared Rabbit Connection: SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055]
+2025-10-27 09:54:47.290 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 09:54:47.294 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'order.exchange' in vhost '/': received 'topic' but current is 'direct', class-id=40, method-id=10)
+2025-10-27 09:54:47.295 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:54:51.299 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 09:54:51.300 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x00000254206f4510 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@70aa58e1 Shared Rabbit Connection: SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055]
+2025-10-27 09:54:51.300 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 09:54:51.304 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'order.exchange' in vhost '/': received 'topic' but current is 'direct', class-id=40, method-id=10)
+2025-10-27 09:54:51.304 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:54:56.322 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 09:54:56.322 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x00000254206f4510 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@70aa58e1 Shared Rabbit Connection: SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055]
+2025-10-27 09:54:56.322 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 09:54:56.326 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'order.exchange' in vhost '/': received 'topic' but current is 'direct', class-id=40, method-id=10)
+2025-10-27 09:54:56.326 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:54:56.330 [main] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Broker not available; cannot force queue declarations during start: java.io.IOException
+2025-10-27 09:54:56.339 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x00000254206ff8d8 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@70aa58e1 Shared Rabbit Connection: SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055]
+2025-10-27 09:54:56.343 [AMQP Connection 127.0.0.1:5672] DEBUG o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+2025-10-27 09:54:56.343 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:54:56.345 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Queue 'payment.success.queue' does not exist
+2025-10-27 09:54:56.345 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Redeclaring context exchanges, queues, bindings.
+2025-10-27 09:54:56.345 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 09:54:56.346 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x00000254206f4510 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@70aa58e1 Shared Rabbit Connection: SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055]
+2025-10-27 09:54:56.346 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 09:54:56.350 [AMQP Connection 127.0.0.1:5672] ERROR o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'order.exchange' in vhost '/': received 'topic' but current is 'direct', class-id=40, method-id=10)
+2025-10-27 09:54:56.350 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:54:56.353 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] ERROR o.s.a.r.l.SimpleMessageListenerContainer - Failed to check/redeclare auto-delete queue(s).
+org.springframework.amqp.AmqpIOException: java.io.IOException
+	at org.springframework.amqp.rabbit.support.RabbitExceptionTranslator.convertRabbitAccessException(RabbitExceptionTranslator.java:70)
+	at org.springframework.amqp.rabbit.connection.RabbitAccessor.convertRabbitAccessException(RabbitAccessor.java:118)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2288)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2234)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.execute(RabbitTemplate.java:2214)
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.redeclareBeanDeclarables(RabbitAdmin.java:705)
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.initialize(RabbitAdmin.java:651)
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.attemptDeclarations(AbstractMessageListenerContainer.java:1976)
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.redeclareElementsIfNecessary(AbstractMessageListenerContainer.java:1936)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1489)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1328)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:140)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:136)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:158)
+	at com.rabbitmq.client.impl.ChannelN.exchangeDeclare(ChannelN.java:804)
+	at com.rabbitmq.client.impl.ChannelN.exchangeDeclare(ChannelN.java:47)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at org.zewang.ordersystem.service.order.impl.OrderServiceImpl$$SpringCGLIB$$0.createOrder(<generated>)
-	at org.zewang.ordersystem.controller.order.OrderController.createOrder(OrderController.java:44)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1201)
+	at jdk.proxy2/jdk.proxy2.$Proxy119.exchangeDeclare(Unknown Source)
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.declareExchanges(RabbitAdmin.java:831)
+	at org.springframework.amqp.rabbit.core.RabbitAdmin.lambda$redeclareBeanDeclarables$16(RabbitAdmin.java:706)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.invokeAction(RabbitTemplate.java:2321)
+	at org.springframework.amqp.rabbit.core.RabbitTemplate.doExecute(RabbitTemplate.java:2282)
+	... 9 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'order.exchange' in vhost '/': received 'topic' but current is 'direct', class-id=40, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:552)
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:316)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:152)
+	... 19 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'type' for exchange 'order.exchange' in vhost '/': received 'topic' but current is 'direct', class-id=40, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:528)
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:349)
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:193)
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:125)
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:761)
+	at com.rabbitmq.client.impl.AMQConnection.access$400(AMQConnection.java:48)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:688)
+	... 1 common frames omitted
+2025-10-27 09:54:56.362 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@687e561b: tags=[[]], channel=null, acknowledgeMode=MANUAL local queue size=0
+2025-10-27 09:54:56.370 [AMQP Connection 127.0.0.1:5672] DEBUG o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+2025-10-27 09:54:56.370 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:54:56.373 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] WARN  o.s.a.r.l.BlockingQueueConsumer - Failed to declare queue: payment.success.queue
+2025-10-27 09:54:56.373 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] WARN  o.s.a.r.l.BlockingQueueConsumer - Queue declaration failed; retries left=3
+org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[payment.success.queue]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:772)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:649)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:636)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1490)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1328)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:140)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:136)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:158)
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1033)
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:47)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1201)
+	at jdk.proxy2/jdk.proxy2.$Proxy119.queueDeclarePassive(Unknown Source)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:750)
+	... 5 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:552)
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:316)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:152)
+	... 12 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:528)
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:349)
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:193)
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:125)
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:761)
+	at com.rabbitmq.client.impl.AMQConnection.access$400(AMQConnection.java:48)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:688)
+	... 1 common frames omitted
+2025-10-27 09:55:01.392 [AMQP Connection 127.0.0.1:5672] DEBUG o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+2025-10-27 09:55:01.393 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:55:01.395 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] WARN  o.s.a.r.l.BlockingQueueConsumer - Failed to declare queue: payment.success.queue
+2025-10-27 09:55:01.396 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] WARN  o.s.a.r.l.BlockingQueueConsumer - Queue declaration failed; retries left=2
+org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[payment.success.queue]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:772)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:649)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:636)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1490)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1328)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:140)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:136)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:158)
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1033)
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1201)
+	at jdk.proxy2/jdk.proxy2.$Proxy119.queueDeclarePassive(Unknown Source)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:750)
+	... 5 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:552)
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:316)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:152)
+	... 12 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:528)
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:349)
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:193)
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:125)
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:761)
+	at com.rabbitmq.client.impl.AMQConnection.access$400(AMQConnection.java:48)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:688)
+	... 1 common frames omitted
+2025-10-27 09:55:06.408 [AMQP Connection 127.0.0.1:5672] DEBUG o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+2025-10-27 09:55:06.408 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:55:06.412 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] WARN  o.s.a.r.l.BlockingQueueConsumer - Failed to declare queue: payment.success.queue
+2025-10-27 09:55:06.412 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] WARN  o.s.a.r.l.BlockingQueueConsumer - Queue declaration failed; retries left=1
+org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[payment.success.queue]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:772)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:649)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:636)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1490)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1328)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:140)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:136)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:158)
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1033)
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1201)
+	at jdk.proxy2/jdk.proxy2.$Proxy119.queueDeclarePassive(Unknown Source)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:750)
+	... 5 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:552)
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:316)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:152)
+	... 12 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:528)
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:349)
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:193)
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:125)
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:761)
+	at com.rabbitmq.client.impl.AMQConnection.access$400(AMQConnection.java:48)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:688)
+	... 1 common frames omitted
+2025-10-27 09:55:11.423 [AMQP Connection 127.0.0.1:5672] DEBUG o.s.a.r.c.CachingConnectionFactory - Shutdown Signal: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+2025-10-27 09:55:11.423 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Detected closed channel on exception.  Re-initializing: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:55:11.425 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] WARN  o.s.a.r.l.BlockingQueueConsumer - Failed to declare queue: payment.success.queue
+2025-10-27 09:55:11.426 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] ERROR o.s.a.r.l.SimpleMessageListenerContainer - Consumer threw missing queues exception, fatal=true
+org.springframework.amqp.rabbit.listener.QueuesNotAvailableException: Cannot prepare queue for listener. Either the queue doesn't exist or the broker will not allow us to use it.
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.handleDeclarationException(BlockingQueueConsumer.java:722)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:656)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:636)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1490)
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1328)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[payment.success.queue]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:772)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:649)
+	... 4 common frames omitted
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:140)
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:136)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:158)
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1033)
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:47)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1201)
+	at jdk.proxy2/jdk.proxy2.$Proxy119.queueDeclarePassive(Unknown Source)
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:750)
+	... 5 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66)
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36)
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:552)
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:316)
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:152)
+	... 12 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'payment.success.queue' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:528)
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:349)
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:193)
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:125)
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:761)
+	at com.rabbitmq.client.impl.AMQConnection.access$400(AMQConnection.java:48)
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:688)
+	... 1 common frames omitted
+2025-10-27 09:55:11.429 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@687e561b: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@70aa58e1 Shared Rabbit Connection: SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 09:55:11.429 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@70aa58e1 Shared Rabbit Connection: SimpleConnection@7805478c [delegate=amqp://guest@127.0.0.1:5672/, localPort=57055]
+2025-10-27 09:55:11.429 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:55:11.430 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-10-27 09:55:11.431 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] ERROR o.s.a.r.l.SimpleMessageListenerContainer - Stopping container from aborted consumer
+2025-10-27 09:55:11.431 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 09:55:11.431 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 09:55:11.431 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-10-27 09:55:11.431 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-10-27 09:55:11.433 [main] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-27 09:55:11.445 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-27 09:55:11.455 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.amqp.rabbit.config.internalRabbitListenerEndpointRegistry'
+2025-10-27 09:55:11.460 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 09:55:11.460 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 09:57:17.379 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 39848 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
+2025-10-27 09:57:17.380 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-27 09:57:18.539 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-27 09:57:18.551 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-27 09:57:18.551 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27 09:57:18.588 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-27 09:57:18.589 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1173 ms
+2025-10-27 09:57:18.976 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-27 09:57:19.812 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-10-27 09:57:20.100 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 09:57:20.102 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 09:57:20.103 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 09:57:20.103 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 09:57:20.147 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-27 09:57:20.149 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-10-27 09:57:20.150 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-10-27 09:57:20.189 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#7ead1d80:0/SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 09:57:20.193 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 09:57:20.202 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 09:57:20.209 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000019d016f28a0 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 09:57:20.209 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 09:57:20.259 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'inventory.exchange'
+2025-10-27 09:57:20.267 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'inventory.dlq.exchange'
+2025-10-27 09:57:20.274 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'payment.exchange'
+2025-10-27 09:57:20.283 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'order.processing.queue'
+2025-10-27 09:57:20.300 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'order.dlq.queue'
+2025-10-27 09:57:20.315 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.deduct.queue'
+2025-10-27 09:57:20.330 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.dlq.queue'
+2025-10-27 09:57:20.344 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'payment.success.queue'
+2025-10-27 09:57:20.359 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.init.queue'
+2025-10-27 09:57:20.373 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.adjust.queue'
+2025-10-27 09:57:20.391 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [order.processing.queue (QUEUE)] to exchange [order.exchange] with routing key [order.processing]
+2025-10-27 09:57:20.407 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [order.dlq.queue (QUEUE)] to exchange [order.exchange] with routing key [order.dlq]
+2025-10-27 09:57:20.418 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.deduct.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.deduct]
+2025-10-27 09:57:20.426 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.dlq.queue (QUEUE)] to exchange [inventory.dlq.exchange] with routing key [inventory.dlq]
+2025-10-27 09:57:20.434 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [payment.success.queue (QUEUE)] to exchange [payment.exchange] with routing key [payment.success]
+2025-10-27 09:57:20.441 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.init.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.init]
+2025-10-27 09:57:20.446 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.adjust.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.adjust]
+2025-10-27 09:57:20.453 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Declarations finished
+2025-10-27 09:57:20.458 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000019d016fed00 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 09:57:20.462 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@1ac3a6f: tags=[[]], channel=null, acknowledgeMode=MANUAL local queue size=0
+2025-10-27 09:57:20.473 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'payment.success.queue' with tag amq.ctag-rshgor8193n_x1B3-YwC5w: Consumer@1ac3a6f: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 09:57:20.473 [pool-2-thread-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@1ac3a6f: tags=[[amq.ctag-rshgor8193n_x1B3-YwC5w]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 09:57:20.473 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-10-27 09:57:20.478 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-10-27 09:57:20.479 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x0000019d016fed00 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 09:57:20.482 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@52290e63: tags=[[]], channel=null, acknowledgeMode=MANUAL local queue size=0
+2025-10-27 09:57:20.489 [pool-2-thread-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@52290e63: tags=[[amq.ctag-WquCdWS6xaOjbDSWjhjUXA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 09:57:20.489 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'order.processing.queue' with tag amq.ctag-WquCdWS6xaOjbDSWjhjUXA: Consumer@52290e63: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 09:57:20.499 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 3.593 seconds (process running for 4.114)
+2025-10-27 09:57:20.506 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-27 09:57:20.762 [scheduling-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4f0f94a6
+2025-10-27 09:57:20.763 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-27 09:58:23.436 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-27 09:58:23.436 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-27 09:58:23.438 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-10-27 09:58:23.599 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 09:58:23.600 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 09:58:23.600 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 09:58:23.754 [http-nio-8080-exec-3] INFO  o.z.o.s.order.impl.OrderServiceImpl - 订单创建成功：ORD202510270958238437
+2025-10-27 09:58:25.963 [scheduling-3] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,3)
+2025-10-27 09:58:25.964 [scheduling-3] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitTemplate$$Lambda/0x0000019d01882158 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 09:58:25.978 [scheduling-3] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Publishing message [(Body:'[B@4f0a52d5(byte[87])' MessageProperties [headers={spring_listener_return_correlation=cfb309b6-c678-4552-8067-e65d1b8c2c0a}, contentType=text/plain, contentEncoding=UTF-8, contentLength=87, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [order.exchange], routingKey = [order.created]
+2025-10-27 09:58:26.016 [scheduling-3] INFO  o.z.ordersystem.mq.OutboxPublisher - Outbox message published id=4
+2025-10-27 09:59:00.893 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 09:59:00.893 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 09:59:00.893 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 09:59:00.932 [http-nio-8080-exec-4] ERROR o.z.o.c.e.GlobalExceptionHandler - 业务异常: 订单不存在
+2025-10-27 09:59:25.995 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 09:59:25.995 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 09:59:25.995 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:00:00.017 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:00:00.017 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:00:00.017 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:00:00.021 [scheduling-1] INFO  o.z.o.mq.DeadLetterProcessor - 死信消息已重新投递: DLQ ID=1, New Outbox ID=5
+2025-10-27 10:00:01.058 [scheduling-5] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitTemplate$$Lambda/0x0000019d01882158 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 10:00:01.058 [scheduling-5] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Publishing message [(Body:'[B@34c4b3ff(byte[87])' MessageProperties [headers={spring_listener_return_correlation=cfb309b6-c678-4552-8067-e65d1b8c2c0a}, contentType=text/plain, contentEncoding=UTF-8, contentLength=87, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [order.exchange], routingKey = [order.created]
+2025-10-27 10:00:01.065 [scheduling-5] INFO  o.z.o.mq.OutboxMessageListener - 成功发送消息: ID=5, Topic=order.created
+2025-10-27 10:00:31.699 [http-nio-8080-exec-5] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:00:31.700 [http-nio-8080-exec-5] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:00:31.700 [http-nio-8080-exec-5] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:00:31.744 [http-nio-8080-exec-5] INFO  o.z.o.s.f.i.FulfillmentServiceImpl - Created fulfillment: FD17615304317393C1857 for order: ORD202510270958238437
+2025-10-27 10:00:31.747 [http-nio-8080-exec-5] INFO  o.z.o.s.order.impl.OrderServiceImpl - 订单支付成功: ORD202510270958238437
+2025-10-27 10:00:36.320 [scheduling-4] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitTemplate$$Lambda/0x0000019d01882158 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 10:00:36.320 [scheduling-4] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Publishing message [(Body:'[B@2acdefbe(byte[127])' MessageProperties [headers={spring_listener_return_correlation=cfb309b6-c678-4552-8067-e65d1b8c2c0a}, contentType=text/plain, contentEncoding=UTF-8, contentLength=127, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [order.exchange], routingKey = [order.paid]
+2025-10-27 10:00:36.331 [scheduling-4] INFO  o.z.ordersystem.mq.OutboxPublisher - Outbox message published id=6
+2025-10-27 10:01:02.861 [http-nio-8080-exec-8] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:01:02.861 [http-nio-8080-exec-8] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:01:02.861 [http-nio-8080-exec-8] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:01:43.463 [http-nio-8080-exec-9] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:01:43.464 [http-nio-8080-exec-9] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:01:43.464 [http-nio-8080-exec-9] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:01:46.501 [scheduling-3] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitTemplate$$Lambda/0x0000019d01882158 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 10:01:46.501 [scheduling-3] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Publishing message [(Body:'[B@6dcc6bcf(byte[145])' MessageProperties [headers={spring_listener_return_correlation=cfb309b6-c678-4552-8067-e65d1b8c2c0a}, contentType=text/plain, contentEncoding=UTF-8, contentLength=145, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [payment.exchange], routingKey = [payment.success]
+2025-10-27 10:01:46.535 [scheduling-3] INFO  o.z.ordersystem.mq.OutboxPublisher - Outbox message published id=7
+2025-10-27 10:01:46.541 [pool-2-thread-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Storing delivery for consumerTag: 'amq.ctag-rshgor8193n_x1B3-YwC5w' with deliveryTag: '1' in Consumer@1ac3a6f: tags=[[amq.ctag-rshgor8193n_x1B3-YwC5w]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:01:46.542 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received message: (Body:'[B@dd0fd0f(byte[145])' MessageProperties [headers={spring_listener_return_correlation=cfb309b6-c678-4552-8067-e65d1b8c2c0a}, contentType=text/plain, contentEncoding=UTF-8, contentLength=0, receivedDeliveryMode=PERSISTENT, priority=0, redelivered=false, receivedExchange=payment.exchange, receivedRoutingKey=payment.success, deliveryTag=1, consumerTag=amq.ctag-rshgor8193n_x1B3-YwC5w, consumerQueue=payment.success.queue])
+2025-10-27 10:01:46.550 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.a.MessagingMessageListenerAdapter - Processing [GenericMessage [payload={"amount": 1195.0, "orderId": "ORD202510270958238437", "paymentTime": "2025-10-27T10:01:43.472283500", "transactionId": "PAY176153040003138033D"}, headers={amqp_receivedDeliveryMode=PERSISTENT, amqp_receivedExchange=payment.exchange, amqp_deliveryTag=1, amqp_consumerQueue=payment.success.queue, amqp_redelivered=false, amqp_receivedRoutingKey=payment.success, amqp_contentEncoding=UTF-8, spring_listener_return_correlation=cfb309b6-c678-4552-8067-e65d1b8c2c0a, amqp_retryCount=0, id=38703e43-15b0-c3f1-19b9-d9b6098dd720, amqp_consumerTag=amq.ctag-rshgor8193n_x1B3-YwC5w, amqp_lastInBatch=false, contentType=text/plain, timestamp=1761530506549}]]
+2025-10-27 10:01:46.552 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  o.z.o.mq.OrderMessageConsumer - 收到支付成功消息: {"amount": 1195.0, "orderId": "ORD202510270958238437", "paymentTime": "2025-10-27T10:01:43.472283500", "transactionId": "PAY176153040003138033D"}
+2025-10-27 10:01:46.552 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  o.z.o.mq.OrderMessageConsumer - 处理支付消息: {"amount": 1195.0, "orderId": "ORD202510270958238437", "paymentTime": "2025-10-27T10:01:43.472283500", "transactionId": "PAY176153040003138033D"}
+2025-10-27 10:01:46.555 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] INFO  o.z.o.mq.OrderMessageConsumer - 支付成功消息处理成功并已确认: deliveryTag=1
+2025-10-27 10:02:29.675 [http-nio-8080-exec-10] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: null
+2025-10-27 10:02:29.675 [http-nio-8080-exec-10] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: null
+2025-10-27 10:02:29.675 [http-nio-8080-exec-10] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: null
+2025-10-27 10:03:10.113 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: null
+2025-10-27 10:03:10.113 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: null
+2025-10-27 10:03:10.113 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: null
+2025-10-27 10:04:00.498 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: null
+2025-10-27 10:04:00.498 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: null
+2025-10-27 10:04:00.498 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: null
+2025-10-27 10:04:29.200 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:04:29.201 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:04:29.201 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:04:29.207 [http-nio-8080-exec-3] ERROR o.z.o.c.e.GlobalExceptionHandler - 系统异常: 
+org.springframework.web.servlet.resource.NoResourceFoundException: No static resource api/fulfillment/ORD202510270958238437.
+	at org.springframework.web.servlet.resource.ResourceHttpRequestHandler.handleRequest(ResourceHttpRequestHandler.java:585)
+	at org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter.handle(HttpRequestHandlerAdapter.java:52)
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
@@ -193,641 +485,28 @@ org.springframework.dao.DataIntegrityViolationException:
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Invalid JSON text: "Invalid value." at position 0 in value for column 'outbox_messages.message_body'.
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:96)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
-	at jdk.proxy3/jdk.proxy3.$Proxy119.execute(Unknown Source)
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
-	at jdk.proxy2/jdk.proxy2.$Proxy117.update(Unknown Source)
-	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
-	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
-	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
-	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:106)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
-	at jdk.proxy2/jdk.proxy2.$Proxy116.update(Unknown Source)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
-	... 122 common frames omitted
-2025-10-22 19:09:58.330 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-10-22 19:09:58.346 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-10-22 19:09:58.356 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-10-22 19:09:58.362 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-10-22 19:10:03.573 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 14568 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
-2025-10-22 19:10:03.575 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
-2025-10-22 19:10:04.772 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-10-22 19:10:04.786 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-10-22 19:10:04.786 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-10-22 19:10:04.834 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-10-22 19:10:04.834 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1213 ms
-2025-10-22 19:10:05.186 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-10-22 19:10:06.179 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-10-22 19:10:06.551 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-10-22 19:10:06.558 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 3.476 seconds (process running for 4.037)
-2025-10-22 19:10:33.620 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-10-22 19:10:33.633 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-10-22 19:10:35.820 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 14928 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
-2025-10-22 19:10:35.823 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
-2025-10-22 19:10:36.955 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-10-22 19:10:36.967 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-10-22 19:10:36.968 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-10-22 19:10:37.010 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-10-22 19:10:37.011 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1143 ms
-2025-10-22 19:10:37.366 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-10-22 19:10:38.177 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-10-22 19:10:38.538 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-10-22 19:10:38.547 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 3.228 seconds (process running for 4.003)
-2025-10-22 19:10:43.693 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-22 19:10:43.694 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-10-22 19:10:43.695 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-10-22 19:10:43.843 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-10-22 19:10:44.077 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64ae2ff1
-2025-10-22 19:10:44.078 [http-nio-8080-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-10-22 19:10:44.141 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:10:44.142 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:10:44.142 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 19:10:44.237 [http-nio-8080-exec-2] INFO  o.z.o.s.order.impl.OrderServiceImpl - 订单创建成功：ORD202510221910445013
-2025-10-22 19:10:58.910 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:10:58.910 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:10:58.910 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 19:10:59.802 [http-nio-8080-exec-3] ERROR o.z.o.c.e.GlobalExceptionHandler - 系统异常: 
-org.springframework.dao.DataIntegrityViolationException: 
-### Error updating database.  Cause: java.sql.SQLException: Field 'user_id' doesn't have a default value
-### The error may exist in org/zewang/ordersystem/mapper/payment/PaymentMapper.java (best guess)
-### The error may involve org.zewang.ordersystem.mapper.payment.PaymentMapper.insert-Inline
-### The error occurred while setting parameters
-### SQL: INSERT INTO payments  ( payment_id, order_id,  amount, payment_type, status, callback_url, pay_url,  create_time, update_time )  VALUES (  ?, ?,  ?, ?, ?, ?, ?,  ?, ?  )
-### Cause: java.sql.SQLException: Field 'user_id' doesn't have a default value
-; Field 'user_id' doesn't have a default value
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:258)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
-	at jdk.proxy2/jdk.proxy2.$Proxy76.insert(Unknown Source)
-	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:59)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
-	at jdk.proxy2/jdk.proxy2.$Proxy100.insert(Unknown Source)
-	at org.zewang.ordersystem.service.payment.impl.PaymentServiceImpl.createPayment(PaymentServiceImpl.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at org.zewang.ordersystem.service.payment.impl.PaymentServiceImpl$$SpringCGLIB$$0.createPayment(<generated>)
-	at org.zewang.ordersystem.controller.payment.PaymentController.createPayment(PaymentController.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
-	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.zewang.ordersystem.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.sql.SQLException: Field 'user_id' doesn't have a default value
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
-	at jdk.proxy3/jdk.proxy3.$Proxy119.execute(Unknown Source)
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
-	at jdk.proxy2/jdk.proxy2.$Proxy117.update(Unknown Source)
-	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
-	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
-	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
-	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:106)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
-	at jdk.proxy2/jdk.proxy2.$Proxy116.update(Unknown Source)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
-	... 122 common frames omitted
-2025-10-22 19:13:43.169 [http-nio-8080-exec-5] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:13:43.169 [http-nio-8080-exec-5] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:13:43.169 [http-nio-8080-exec-5] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 19:13:43.185 [http-nio-8080-exec-5] ERROR o.z.o.c.e.GlobalExceptionHandler - 系统异常: 
-org.springframework.dao.DataIntegrityViolationException: 
-### Error updating database.  Cause: java.sql.SQLException: Field 'user_id' doesn't have a default value
-### The error may exist in org/zewang/ordersystem/mapper/payment/PaymentMapper.java (best guess)
-### The error may involve org.zewang.ordersystem.mapper.payment.PaymentMapper.insert-Inline
-### The error occurred while setting parameters
-### SQL: INSERT INTO payments  ( payment_id, order_id,  amount, payment_type, status, callback_url, pay_url,  create_time, update_time )  VALUES (  ?, ?,  ?, ?, ?, ?, ?,  ?, ?  )
-### Cause: java.sql.SQLException: Field 'user_id' doesn't have a default value
-; Field 'user_id' doesn't have a default value
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:258)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
-	at jdk.proxy2/jdk.proxy2.$Proxy76.insert(Unknown Source)
-	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:59)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
-	at jdk.proxy2/jdk.proxy2.$Proxy100.insert(Unknown Source)
-	at org.zewang.ordersystem.service.payment.impl.PaymentServiceImpl.createPayment(PaymentServiceImpl.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at org.zewang.ordersystem.service.payment.impl.PaymentServiceImpl$$SpringCGLIB$$0.createPayment(<generated>)
-	at org.zewang.ordersystem.controller.payment.PaymentController.createPayment(PaymentController.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
-	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.zewang.ordersystem.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.sql.SQLException: Field 'user_id' doesn't have a default value
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
-	at jdk.proxy3/jdk.proxy3.$Proxy119.execute(Unknown Source)
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
-	at jdk.proxy2/jdk.proxy2.$Proxy117.update(Unknown Source)
-	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
-	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
-	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
-	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:106)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
-	at jdk.proxy2/jdk.proxy2.$Proxy116.update(Unknown Source)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
-	... 122 common frames omitted
-2025-10-22 19:13:53.951 [http-nio-8080-exec-9] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:13:53.951 [http-nio-8080-exec-9] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:13:53.951 [http-nio-8080-exec-9] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 19:13:53.964 [http-nio-8080-exec-9] ERROR o.z.o.c.e.GlobalExceptionHandler - 系统异常: 
-org.springframework.dao.DataIntegrityViolationException: 
-### Error updating database.  Cause: java.sql.SQLException: Field 'user_id' doesn't have a default value
-### The error may exist in org/zewang/ordersystem/mapper/payment/PaymentMapper.java (best guess)
-### The error may involve org.zewang.ordersystem.mapper.payment.PaymentMapper.insert-Inline
-### The error occurred while setting parameters
-### SQL: INSERT INTO payments  ( payment_id, order_id,  amount, payment_type, status, callback_url, pay_url,  create_time, update_time )  VALUES (  ?, ?,  ?, ?, ?, ?, ?,  ?, ?  )
-### Cause: java.sql.SQLException: Field 'user_id' doesn't have a default value
-; Field 'user_id' doesn't have a default value
-	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:258)
-	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
-	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
-	at jdk.proxy2/jdk.proxy2.$Proxy76.insert(Unknown Source)
-	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:272)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:59)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
-	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
-	at jdk.proxy2/jdk.proxy2.$Proxy100.insert(Unknown Source)
-	at org.zewang.ordersystem.service.payment.impl.PaymentServiceImpl.createPayment(PaymentServiceImpl.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
-	at org.zewang.ordersystem.service.payment.impl.PaymentServiceImpl$$SpringCGLIB$$0.createPayment(<generated>)
-	at org.zewang.ordersystem.controller.payment.PaymentController.createPayment(PaymentController.java:34)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
-	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
-	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.zewang.ordersystem.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
-	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
-	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
-	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
-	at java.base/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.sql.SQLException: Field 'user_id' doesn't have a default value
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
-	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
-	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
-	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
-	at jdk.proxy3/jdk.proxy3.$Proxy119.execute(Unknown Source)
-	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:48)
-	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:75)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
-	at jdk.proxy2/jdk.proxy2.$Proxy117.update(Unknown Source)
-	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
-	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
-	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.apache.ibatis.plugin.Invocation.proceed(Invocation.java:49)
-	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:106)
-	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
-	at jdk.proxy2/jdk.proxy2.$Proxy116.update(Unknown Source)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
-	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
-	... 122 common frames omitted
-2025-10-22 19:14:07.342 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-10-22 19:14:07.353 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-10-22 19:14:07.367 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-10-22 19:14:07.376 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-10-22 19:14:12.478 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 28436 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
-2025-10-22 19:14:12.480 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
-2025-10-22 19:14:13.765 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-10-22 19:14:13.776 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-10-22 19:14:13.776 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-10-22 19:14:13.817 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-10-22 19:14:13.817 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1291 ms
-2025-10-22 19:14:14.174 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-10-22 19:14:14.973 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-10-22 19:14:15.321 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-10-22 19:14:15.329 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 3.352 seconds (process running for 3.911)
-2025-10-22 19:14:18.082 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-22 19:14:18.082 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-10-22 19:14:18.083 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2025-10-22 19:14:18.231 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-10-22 19:14:18.446 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2f9d3100
-2025-10-22 19:14:18.448 [http-nio-8080-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-10-22 19:14:18.511 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:14:18.512 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:14:18.512 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 19:14:41.227 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:14:41.228 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:14:41.228 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 19:14:41.238 [http-nio-8080-exec-7] ERROR o.z.o.c.e.GlobalExceptionHandler - 业务异常: 支付不存在
-2025-10-22 19:15:14.050 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:15:14.050 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:15:14.050 [http-nio-8080-exec-4] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 19:18:44.541 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-10-22 19:18:44.556 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-10-22 19:18:44.564 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-10-22 19:18:44.573 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2025-10-22 19:18:49.543 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 42072 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
-2025-10-22 19:18:49.545 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
-2025-10-22 19:18:51.009 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2025-10-22 19:18:51.035 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2025-10-22 19:18:51.035 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
-2025-10-22 19:18:51.142 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2025-10-22 19:18:51.143 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1555 ms
-2025-10-22 19:18:51.700 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
-2025-10-22 19:18:53.105 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
-2025-10-22 19:18:53.695 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2025-10-22 19:18:53.707 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 4.678 seconds (process running for 5.239)
-2025-10-22 19:19:01.863 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-22 19:19:01.864 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2025-10-22 19:19:01.866 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2025-10-22 19:19:27.615 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2025-10-22 19:19:27.902 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47da0008
-2025-10-22 19:19:27.905 [http-nio-8080-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2025-10-22 19:19:28.002 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:19:28.002 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxMTI5OTMyLCJleHAiOjE3NjEyMTYzMzJ9.o9hbewXkzcVv_Pg_r_C-fX12rNbz5xMIT3m6EMTKCxM
-2025-10-22 19:19:28.002 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
-2025-10-22 19:19:56.426 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2025-10-22 19:19:56.451 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
-2025-10-22 19:19:56.459 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2025-10-22 19:19:56.477 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-27 10:05:00.009 [scheduling-5] INFO  o.z.o.mq.DeadLetterProcessor - 死信消息已重新投递: DLQ ID=1, New Outbox ID=8
+2025-10-27 10:05:01.427 [scheduling-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitTemplate$$Lambda/0x0000019d01882158 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 10:05:01.427 [scheduling-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Publishing message [(Body:'[B@230c9c02(byte[87])' MessageProperties [headers={spring_listener_return_correlation=cfb309b6-c678-4552-8067-e65d1b8c2c0a}, contentType=text/plain, contentEncoding=UTF-8, contentLength=87, deliveryMode=PERSISTENT, priority=0, deliveryTag=0])] on exchange [order.exchange], routingKey = [order.created]
+2025-10-27 10:05:01.430 [scheduling-1] INFO  o.z.o.mq.OutboxMessageListener - 成功发送消息: ID=8, Topic=order.created
+2025-10-27 10:05:17.138 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-10-27 10:05:17.142 [pool-2-thread-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-rshgor8193n_x1B3-YwC5w (payment.success.queue); Consumer@1ac3a6f: tags=[[amq.ctag-rshgor8193n_x1B3-YwC5w]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:05:17.143 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-10-27 10:05:17.143 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-10-27 10:05:17.144 [pool-2-thread-7] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-WquCdWS6xaOjbDSWjhjUXA (order.processing.queue); Consumer@52290e63: tags=[[amq.ctag-WquCdWS6xaOjbDSWjhjUXA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:05:17.145 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-10-27 10:05:17.536 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@1ac3a6f: tags=[[amq.ctag-rshgor8193n_x1B3-YwC5w]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:05:17.536 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 10:05:17.535 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-10-27 10:05:17.536 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 10:05:18.019 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-10-27 10:05:18.019 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@52290e63: tags=[[amq.ctag-WquCdWS6xaOjbDSWjhjUXA]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:05:18.019 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@5bad555b Shared Rabbit Connection: SimpleConnection@4be460e5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62657]
+2025-10-27 10:05:18.019 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-10-27 10:05:18.020 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-27 10:05:18.028 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-27 10:05:18.031 [SpringApplicationShutdownHook] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,3)
+2025-10-27 10:05:18.041 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 10:05:18.041 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 10:05:18.042 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-27 10:05:18.049 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

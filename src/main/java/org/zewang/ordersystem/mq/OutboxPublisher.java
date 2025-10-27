@@ -130,8 +130,10 @@ public class OutboxPublisher {
             return RabbitConstants.INVENTORY_EXCHANGE;
         } else if (topic.startsWith("order.")) {
             return RabbitConstants.ORDER_EXCHANGE;
+        } else if (topic.startsWith("payment.")) {
+            return RabbitConstants.PAYMENT_EXCHANGE;
         }
-        // 默认路由到订单交换机，可根据需要扩展映射表
+        // 默认路由到订单交换机
         return RabbitConstants.ORDER_EXCHANGE;
     }
 
