@@ -510,3 +510,921 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 2025-10-27 10:05:18.041 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
 2025-10-27 10:05:18.042 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2025-10-27 10:05:18.049 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-27 10:07:13.838 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 41748 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
+2025-10-27 10:07:13.840 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-27 10:07:14.996 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-27 10:07:15.010 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-27 10:07:15.010 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27 10:07:15.056 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-27 10:07:15.056 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1176 ms
+2025-10-27 10:07:15.382 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-27 10:07:16.239 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-10-27 10:07:16.548 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 10:07:16.550 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 10:07:16.551 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 10:07:16.551 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 10:07:16.614 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-27 10:07:16.616 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-10-27 10:07:16.618 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-10-27 10:07:16.664 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#6d4a05f7:0/SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113]
+2025-10-27 10:07:16.668 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 10:07:16.680 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 10:07:16.687 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001c9c86f3ce8 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113]
+2025-10-27 10:07:16.687 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 10:07:16.691 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'inventory.exchange'
+2025-10-27 10:07:16.693 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'inventory.dlq.exchange'
+2025-10-27 10:07:16.694 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'payment.exchange'
+2025-10-27 10:07:16.696 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'order.processing.queue'
+2025-10-27 10:07:16.699 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'order.dlq.queue'
+2025-10-27 10:07:16.701 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.deduct.queue'
+2025-10-27 10:07:16.702 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.dlq.queue'
+2025-10-27 10:07:16.703 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'payment.success.queue'
+2025-10-27 10:07:16.704 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.init.queue'
+2025-10-27 10:07:16.705 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.adjust.queue'
+2025-10-27 10:07:16.706 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [order.processing.queue (QUEUE)] to exchange [order.exchange] with routing key [order.processing]
+2025-10-27 10:07:16.709 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [order.dlq.queue (QUEUE)] to exchange [order.exchange] with routing key [order.dlq]
+2025-10-27 10:07:16.710 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.deduct.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.deduct]
+2025-10-27 10:07:16.712 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.dlq.queue (QUEUE)] to exchange [inventory.dlq.exchange] with routing key [inventory.dlq]
+2025-10-27 10:07:16.713 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [payment.success.queue (QUEUE)] to exchange [payment.exchange] with routing key [payment.success]
+2025-10-27 10:07:16.716 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.init.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.init]
+2025-10-27 10:07:16.718 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.adjust.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.adjust]
+2025-10-27 10:07:16.720 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Declarations finished
+2025-10-27 10:07:16.726 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001c9c86fd000 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113]
+2025-10-27 10:07:16.730 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@29b5e7db: tags=[[]], channel=null, acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:16.745 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'order.processing.queue' with tag amq.ctag-bDI7_nCxtHT94O0QbXMXnw: Consumer@29b5e7db: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:16.745 [pool-2-thread-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@29b5e7db: tags=[[amq.ctag-bDI7_nCxtHT94O0QbXMXnw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:16.745 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-10-27 10:07:16.749 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-10-27 10:07:16.749 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001c9c86fd000 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113]
+2025-10-27 10:07:16.750 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@4f7ae05: tags=[[]], channel=null, acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:16.753 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'payment.success.queue' with tag amq.ctag-OFmATJChhPLwOhzuuk6Uig: Consumer@4f7ae05: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:16.754 [pool-2-thread-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@4f7ae05: tags=[[amq.ctag-OFmATJChhPLwOhzuuk6Uig]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:16.764 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 3.397 seconds (process running for 4.105)
+2025-10-27 10:07:16.770 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-27 10:07:16.994 [scheduling-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4731ff6d
+2025-10-27 10:07:16.995 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-27 10:07:21.839 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-27 10:07:21.840 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-27 10:07:21.841 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-27 10:07:21.924 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:07:21.924 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:07:21.924 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:07:21.947 [http-nio-8080-exec-1] ERROR o.z.o.c.e.GlobalExceptionHandler - 业务异常: 发货信息不存在
+2025-10-27 10:07:52.646 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-10-27 10:07:52.651 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-10-27 10:07:52.651 [pool-2-thread-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-bDI7_nCxtHT94O0QbXMXnw (order.processing.queue); Consumer@29b5e7db: tags=[[amq.ctag-bDI7_nCxtHT94O0QbXMXnw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:52.652 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-10-27 10:07:52.655 [pool-2-thread-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-OFmATJChhPLwOhzuuk6Uig (payment.success.queue); Consumer@4f7ae05: tags=[[amq.ctag-OFmATJChhPLwOhzuuk6Uig]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:52.656 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-10-27 10:07:53.096 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-10-27 10:07:53.096 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@29b5e7db: tags=[[amq.ctag-bDI7_nCxtHT94O0QbXMXnw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:53.096 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113]
+2025-10-27 10:07:53.097 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 10:07:53.112 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@4f7ae05: tags=[[amq.ctag-OFmATJChhPLwOhzuuk6Uig]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:07:53.113 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=58113]
+2025-10-27 10:07:53.113 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-10-27 10:07:53.112 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-10-27 10:07:53.114 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-27 10:07:53.123 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-27 10:07:53.134 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 10:07:53.135 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 10:07:53.137 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-27 10:07:53.145 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-27 10:09:59.397 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 28184 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
+2025-10-27 10:09:59.399 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-27 10:10:00.823 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-27 10:10:00.841 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-27 10:10:00.841 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27 10:10:00.906 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-27 10:10:00.906 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1463 ms
+2025-10-27 10:10:01.296 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-27 10:10:02.573 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-10-27 10:10:03.110 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 10:10:03.112 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 10:10:03.112 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 10:10:03.112 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 10:10:03.168 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-27 10:10:03.169 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-10-27 10:10:03.171 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-10-27 10:10:03.234 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#79195c22:0/SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073]
+2025-10-27 10:10:03.241 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 10:10:03.258 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 10:10:03.269 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001a03e6f7600 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073]
+2025-10-27 10:10:03.270 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 10:10:03.275 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'inventory.exchange'
+2025-10-27 10:10:03.277 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'inventory.dlq.exchange'
+2025-10-27 10:10:03.278 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'payment.exchange'
+2025-10-27 10:10:03.279 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'order.processing.queue'
+2025-10-27 10:10:03.283 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'order.dlq.queue'
+2025-10-27 10:10:03.284 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.deduct.queue'
+2025-10-27 10:10:03.286 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.dlq.queue'
+2025-10-27 10:10:03.287 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'payment.success.queue'
+2025-10-27 10:10:03.288 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.init.queue'
+2025-10-27 10:10:03.290 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.adjust.queue'
+2025-10-27 10:10:03.292 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [order.processing.queue (QUEUE)] to exchange [order.exchange] with routing key [order.processing]
+2025-10-27 10:10:03.296 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [order.dlq.queue (QUEUE)] to exchange [order.exchange] with routing key [order.dlq]
+2025-10-27 10:10:03.299 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.deduct.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.deduct]
+2025-10-27 10:10:03.301 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.dlq.queue (QUEUE)] to exchange [inventory.dlq.exchange] with routing key [inventory.dlq]
+2025-10-27 10:10:03.302 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [payment.success.queue (QUEUE)] to exchange [payment.exchange] with routing key [payment.success]
+2025-10-27 10:10:03.304 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.init.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.init]
+2025-10-27 10:10:03.307 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.adjust.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.adjust]
+2025-10-27 10:10:03.310 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Declarations finished
+2025-10-27 10:10:03.318 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001a03e705a88 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073]
+2025-10-27 10:10:03.325 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@37f41a81: tags=[[]], channel=null, acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:10:03.348 [pool-2-thread-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@37f41a81: tags=[[amq.ctag-ulu8OgaDVPssloJu8tq3zQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:10:03.347 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'payment.success.queue' with tag amq.ctag-ulu8OgaDVPssloJu8tq3zQ: Consumer@37f41a81: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:10:03.348 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-10-27 10:10:03.353 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-10-27 10:10:03.353 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001a03e705a88 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073]
+2025-10-27 10:10:03.355 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@690ed13a: tags=[[]], channel=null, acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:10:03.360 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'order.processing.queue' with tag amq.ctag-uM63OMP6-dpRLN48sFT9Ug: Consumer@690ed13a: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:10:03.361 [pool-2-thread-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@690ed13a: tags=[[amq.ctag-uM63OMP6-dpRLN48sFT9Ug]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:10:03.377 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 4.432 seconds (process running for 4.918)
+2025-10-27 10:10:03.387 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-27 10:10:03.706 [scheduling-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@14a6030c
+2025-10-27 10:10:03.709 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-27 10:12:24.400 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-27 10:12:24.401 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-27 10:12:24.403 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-27 10:12:24.481 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:12:24.481 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:12:24.481 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:12:24.543 [http-nio-8080-exec-2] ERROR o.z.o.c.e.GlobalExceptionHandler - 业务异常: 订单已支付
+2025-10-27 10:12:36.087 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:12:36.087 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:12:36.087 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:12:36.092 [http-nio-8080-exec-3] ERROR o.z.o.c.e.GlobalExceptionHandler - 业务异常: 发货信息不存在
+2025-10-27 10:16:29.421 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:16:29.422 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:16:29.422 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:16:30.125 [http-nio-8080-exec-6] ERROR o.z.o.c.e.GlobalExceptionHandler - 系统异常: 
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+### The error may exist in org/zewang/ordersystem/mapper/fulfillment/ShipmentTrackMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  track_id,fulfillment_id,location,description,track_time,create_time,update_time  FROM shipment_tracks      WHERE  (fulfillment_id = ?) ORDER BY track_time ASC
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+; bad SQL grammar []
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy78.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
+	at jdk.proxy2/jdk.proxy2.$Proxy92.selectList(Unknown Source)
+	at org.zewang.ordersystem.service.fulfillment.impl.FulfillmentServiceImpl.getFulfillmentById(FulfillmentServiceImpl.java:59)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724)
+	at org.zewang.ordersystem.service.fulfillment.impl.FulfillmentServiceImpl$$SpringCGLIB$$0.getFulfillmentById(<generated>)
+	at org.zewang.ordersystem.controller.fulfillment.FulfillmentController.getFulfillmentById(FulfillmentController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.zewang.ordersystem.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
+	at jdk.proxy3/jdk.proxy3.$Proxy124.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at jdk.proxy2/jdk.proxy2.$Proxy121.query(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:81)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy120.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 118 common frames omitted
+2025-10-27 10:21:52.823 [http-nio-8080-exec-10] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:21:52.823 [http-nio-8080-exec-10] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:21:52.823 [http-nio-8080-exec-10] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:21:52.836 [http-nio-8080-exec-10] ERROR o.z.o.c.e.GlobalExceptionHandler - 业务异常: 发货信息不存在
+2025-10-27 10:24:06.380 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:24:06.381 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:24:06.381 [http-nio-8080-exec-2] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:24:06.386 [http-nio-8080-exec-2] ERROR o.z.o.c.e.GlobalExceptionHandler - 系统异常: 
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+### The error may exist in org/zewang/ordersystem/mapper/fulfillment/ShipmentTrackMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  track_id,fulfillment_id,location,description,track_time,create_time,update_time  FROM shipment_tracks      WHERE  (fulfillment_id = ?) ORDER BY track_time ASC
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+; bad SQL grammar []
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy78.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
+	at jdk.proxy2/jdk.proxy2.$Proxy92.selectList(Unknown Source)
+	at org.zewang.ordersystem.service.fulfillment.impl.FulfillmentServiceImpl.getFulfillmentById(FulfillmentServiceImpl.java:59)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724)
+	at org.zewang.ordersystem.service.fulfillment.impl.FulfillmentServiceImpl$$SpringCGLIB$$0.getFulfillmentById(<generated>)
+	at org.zewang.ordersystem.controller.fulfillment.FulfillmentController.getFulfillmentById(FulfillmentController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.zewang.ordersystem.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
+	at jdk.proxy3/jdk.proxy3.$Proxy124.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at jdk.proxy2/jdk.proxy2.$Proxy121.query(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:81)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy120.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 118 common frames omitted
+2025-10-27 10:24:46.391 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:24:46.392 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:24:46.392 [http-nio-8080-exec-3] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:24:46.462 [http-nio-8080-exec-3] INFO  o.z.o.s.f.i.FulfillmentServiceImpl - 处理第三方支付回调， 发货：FD17615304317393C1857， 事件：SHIPPED
+2025-10-27 10:26:07.837 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:26:07.839 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:26:07.839 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:26:07.842 [http-nio-8080-exec-6] ERROR o.z.o.c.e.GlobalExceptionHandler - 系统异常: 
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+### The error may exist in org/zewang/ordersystem/mapper/fulfillment/ShipmentTrackMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  track_id,fulfillment_id,location,description,track_time,create_time,update_time  FROM shipment_tracks      WHERE  (fulfillment_id = ?) ORDER BY track_time ASC
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+; bad SQL grammar []
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy78.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
+	at jdk.proxy2/jdk.proxy2.$Proxy92.selectList(Unknown Source)
+	at org.zewang.ordersystem.service.fulfillment.impl.FulfillmentServiceImpl.getFulfillmentById(FulfillmentServiceImpl.java:59)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724)
+	at org.zewang.ordersystem.service.fulfillment.impl.FulfillmentServiceImpl$$SpringCGLIB$$0.getFulfillmentById(<generated>)
+	at org.zewang.ordersystem.controller.fulfillment.FulfillmentController.getFulfillmentById(FulfillmentController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.zewang.ordersystem.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
+	at jdk.proxy3/jdk.proxy3.$Proxy124.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at jdk.proxy2/jdk.proxy2.$Proxy121.query(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:81)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy120.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 118 common frames omitted
+2025-10-27 10:26:10.538 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:26:10.539 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:26:10.539 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:26:10.543 [http-nio-8080-exec-7] ERROR o.z.o.c.e.GlobalExceptionHandler - 系统异常: 
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+### The error may exist in org/zewang/ordersystem/mapper/fulfillment/ShipmentTrackMapper.java (best guess)
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT  track_id,fulfillment_id,location,description,track_time,create_time,update_time  FROM shipment_tracks      WHERE  (fulfillment_id = ?) ORDER BY track_time ASC
+### Cause: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+; bad SQL grammar []
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy78.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.executeForMany(MybatisMapperMethod.java:164)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperMethod.execute(MybatisMapperMethod.java:77)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy$PlainMethodInvoker.invoke(MybatisMapperProxy.java:152)
+	at com.baomidou.mybatisplus.core.override.MybatisMapperProxy.invoke(MybatisMapperProxy.java:89)
+	at jdk.proxy2/jdk.proxy2.$Proxy92.selectList(Unknown Source)
+	at org.zewang.ordersystem.service.fulfillment.impl.FulfillmentServiceImpl.getFulfillmentById(FulfillmentServiceImpl.java:59)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724)
+	at org.zewang.ordersystem.service.fulfillment.impl.FulfillmentServiceImpl$$SpringCGLIB$$0.getFulfillmentById(<generated>)
+	at org.zewang.ordersystem.controller.fulfillment.FulfillmentController.getFulfillmentById(FulfillmentController.java:41)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.zewang.ordersystem.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:69)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1776)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:975)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:493)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.sql.SQLSyntaxErrorException: Unknown column 'update_time' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:383)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:58)
+	at jdk.proxy3/jdk.proxy3.$Proxy124.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at jdk.proxy2/jdk.proxy2.$Proxy121.query(Unknown Source)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor.intercept(MybatisPlusInterceptor.java:81)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:59)
+	at jdk.proxy2/jdk.proxy2.$Proxy120.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 118 common frames omitted
+2025-10-27 10:28:27.640 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-10-27 10:28:27.646 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-10-27 10:28:27.647 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-10-27 10:28:27.647 [pool-2-thread-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-ulu8OgaDVPssloJu8tq3zQ (payment.success.queue); Consumer@37f41a81: tags=[[amq.ctag-ulu8OgaDVPssloJu8tq3zQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:27.649 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-10-27 10:28:27.649 [pool-2-thread-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-uM63OMP6-dpRLN48sFT9Ug (order.processing.queue); Consumer@690ed13a: tags=[[amq.ctag-uM63OMP6-dpRLN48sFT9Ug]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:27.844 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-10-27 10:28:27.846 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@690ed13a: tags=[[amq.ctag-uM63OMP6-dpRLN48sFT9Ug]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:27.846 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073]
+2025-10-27 10:28:27.846 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-10-27 10:28:27.967 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-10-27 10:28:27.967 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@37f41a81: tags=[[amq.ctag-ulu8OgaDVPssloJu8tq3zQ]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:27.967 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@436a563f Shared Rabbit Connection: SimpleConnection@77f03916 [delegate=amqp://guest@127.0.0.1:5672/, localPort=62073]
+2025-10-27 10:28:27.967 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 10:28:27.968 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-27 10:28:27.983 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-27 10:28:27.993 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 10:28:27.993 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 10:28:27.995 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-27 10:28:28.002 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-10-27 10:28:32.432 [main] INFO  o.z.o.OrderSystemApplication - Starting OrderSystemApplication using Java 21.0.8 with PID 10216 (D:\Zewang\PROJECTS\order-system\target\classes started by zewan in D:\Zewang\PROJECTS\order-system)
+2025-10-27 10:28:32.436 [main] INFO  o.z.o.OrderSystemApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-27 10:28:33.639 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-27 10:28:33.654 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-27 10:28:33.654 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-27 10:28:33.713 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-27 10:28:33.714 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1238 ms
+2025-10-27 10:28:34.048 [main] DEBUG o.z.o.s.JwtAuthenticationFilter - Filter 'jwtAuthenticationFilter' configured for use
+2025-10-27 10:28:34.936 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl
+2025-10-27 10:28:35.256 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 10:28:35.259 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 10:28:35.259 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Changing consumers from 1 to 1
+2025-10-27 10:28:35.260 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - No global properties bean
+2025-10-27 10:28:35.309 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2025-10-27 10:28:35.310 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-10-27 10:28:35.314 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Attempting to connect to: [localhost:5672]
+2025-10-27 10:28:35.352 [main] INFO  o.s.a.r.c.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#4fbaa7f5:0/SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819]
+2025-10-27 10:28:35.355 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Initializing declarations
+2025-10-27 10:28:35.366 [main] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 10:28:35.372 [main] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001828b6f3890 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819]
+2025-10-27 10:28:35.372 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'order.exchange'
+2025-10-27 10:28:35.376 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'inventory.exchange'
+2025-10-27 10:28:35.377 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'inventory.dlq.exchange'
+2025-10-27 10:28:35.379 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Exchange 'payment.exchange'
+2025-10-27 10:28:35.379 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'order.processing.queue'
+2025-10-27 10:28:35.382 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'order.dlq.queue'
+2025-10-27 10:28:35.384 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.deduct.queue'
+2025-10-27 10:28:35.385 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.dlq.queue'
+2025-10-27 10:28:35.386 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'payment.success.queue'
+2025-10-27 10:28:35.387 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.init.queue'
+2025-10-27 10:28:35.388 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - declaring Queue 'inventory.adjust.queue'
+2025-10-27 10:28:35.390 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [order.processing.queue (QUEUE)] to exchange [order.exchange] with routing key [order.processing]
+2025-10-27 10:28:35.392 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [order.dlq.queue (QUEUE)] to exchange [order.exchange] with routing key [order.dlq]
+2025-10-27 10:28:35.394 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.deduct.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.deduct]
+2025-10-27 10:28:35.396 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.dlq.queue (QUEUE)] to exchange [inventory.dlq.exchange] with routing key [inventory.dlq]
+2025-10-27 10:28:35.397 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [payment.success.queue (QUEUE)] to exchange [payment.exchange] with routing key [payment.success]
+2025-10-27 10:28:35.399 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.init.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.init]
+2025-10-27 10:28:35.401 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Binding destination [inventory.adjust.queue (QUEUE)] to exchange [inventory.exchange] with routing key [inventory.adjust]
+2025-10-27 10:28:35.404 [main] DEBUG o.s.amqp.rabbit.core.RabbitAdmin - Declarations finished
+2025-10-27 10:28:35.410 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001828b6ffca8 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819]
+2025-10-27 10:28:35.414 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@29b5e7db: tags=[[]], channel=null, acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:35.426 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'order.processing.queue' with tag amq.ctag-JGhr38oFeV1x3f_ZSnrl2w: Consumer@29b5e7db: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:35.426 [main] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Starting Rabbit listener container.
+2025-10-27 10:28:35.426 [pool-2-thread-3] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@29b5e7db: tags=[[amq.ctag-JGhr38oFeV1x3f_ZSnrl2w]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:35.430 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Creating cached Rabbit Channel from AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-10-27 10:28:35.430 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.amqp.rabbit.core.RabbitTemplate - Executing callback RabbitAdmin$$Lambda/0x000001828b6ffca8 on RabbitMQ Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819]
+2025-10-27 10:28:35.434 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Starting consumer Consumer@4f7ae05: tags=[[]], channel=null, acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:35.436 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Started on queue 'payment.success.queue' with tag amq.ctag-qxpJ5draZlCjkUe5us-zRw: Consumer@4f7ae05: tags=[[]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:35.437 [pool-2-thread-4] DEBUG o.s.a.r.l.BlockingQueueConsumer - ConsumeOK: Consumer@4f7ae05: tags=[[amq.ctag-qxpJ5draZlCjkUe5us-zRw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:28:35.448 [main] INFO  o.z.o.OrderSystemApplication - Started OrderSystemApplication in 3.491 seconds (process running for 4.129)
+2025-10-27 10:28:35.453 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-10-27 10:28:35.711 [scheduling-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2cb84c6c
+2025-10-27 10:28:35.717 [scheduling-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-10-27 10:28:39.226 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-27 10:28:39.226 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-27 10:28:39.228 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-27 10:28:39.316 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:28:39.317 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:28:39.317 [http-nio-8080-exec-1] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:29:40.011 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:29:40.011 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:29:40.012 [http-nio-8080-exec-6] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:29:40.120 [http-nio-8080-exec-6] INFO  o.z.o.s.f.i.FulfillmentServiceImpl - 处理第三方支付回调， 发货：FD17615304317393C1857， 事件：SHIPPED
+2025-10-27 10:30:10.791 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Authorization header: Bearer eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:30:10.791 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted JWT: eyJhbGciOiJIUzI1NiJ9.eyJwZXJtaXNzaW9ucyI6WyJvcmRlcnM6bWFuYWdlIiwidXNlcnM6bWFuYWdlIiwicHJvZHVjdHM6bWFuYWdlIl0sInJvbGVzIjpbIkFETUlOIl0sInN1YiI6ImFkbWluIiwiaWF0IjoxNzYxNDkxMDk4LCJleHAiOjE3NjE1Nzc0OTh9.TahnR505AoaUbkEHMWmZ9daRgfhSZ_1tM-DpfmRzSH4
+2025-10-27 10:30:10.791 [http-nio-8080-exec-7] DEBUG o.z.o.s.JwtAuthenticationFilter - Extracted username: admin
+2025-10-27 10:30:22.118 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-10-27 10:30:22.125 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutting down Rabbit listener container
+2025-10-27 10:30:22.125 [pool-2-thread-5] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-JGhr38oFeV1x3f_ZSnrl2w (order.processing.queue); Consumer@29b5e7db: tags=[[amq.ctag-JGhr38oFeV1x3f_ZSnrl2w]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:30:22.125 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-10-27 10:30:22.127 [pool-2-thread-6] DEBUG o.s.a.r.l.BlockingQueueConsumer - Received cancelOk for tag amq.ctag-qxpJ5draZlCjkUe5us-zRw (payment.success.queue); Consumer@4f7ae05: tags=[[amq.ctag-qxpJ5draZlCjkUe5us-zRw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:30:22.127 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Waiting for workers to finish.
+2025-10-27 10:30:22.499 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-10-27 10:30:22.499 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@4f7ae05: tags=[[amq.ctag-qxpJ5draZlCjkUe5us-zRw]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:30:22.499 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819]
+2025-10-27 10:30:22.499 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,2)
+2025-10-27 10:30:22.514 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] INFO  o.s.a.r.l.SimpleMessageListenerContainer - Successfully waited for workers to finish.
+2025-10-27 10:30:22.514 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Cancelling Consumer@29b5e7db: tags=[[amq.ctag-JGhr38oFeV1x3f_ZSnrl2w]], channel=Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819], acknowledgeMode=MANUAL local queue size=0
+2025-10-27 10:30:22.514 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.l.BlockingQueueConsumer - Closing Rabbit Channel: Cached Rabbit Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1), conn: Proxy@3684d2c0 Shared Rabbit Connection: SimpleConnection@6e4e60f5 [delegate=amqp://guest@127.0.0.1:5672/, localPort=55819]
+2025-10-27 10:30:22.514 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] DEBUG o.s.a.r.c.CachingConnectionFactory - Closing cached Channel: AMQChannel(amqp://guest@127.0.0.1:5672/,1)
+2025-10-27 10:30:22.515 [SpringApplicationShutdownHook] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-27 10:30:22.524 [tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+2025-10-27 10:30:22.532 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 10:30:22.532 [SpringApplicationShutdownHook] DEBUG o.s.a.r.l.SimpleMessageListenerContainer - Shutdown ignored - container is not active already
+2025-10-27 10:30:22.533 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-10-27 10:30:22.539 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

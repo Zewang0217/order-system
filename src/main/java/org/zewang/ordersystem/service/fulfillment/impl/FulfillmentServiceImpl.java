@@ -241,6 +241,7 @@ public class FulfillmentServiceImpl extends ServiceImpl<FulfillmentMapper, Fulfi
             throw new BusinessException(ErrorCode.FULFILLMENT_ALREADY_EXISTS);
         }
 
+
         // 创建发货单
         Fulfillment fulfillment = new Fulfillment();
         String fulfillmentId = "FD" + System.currentTimeMillis() + UUID.randomUUID().toString().substring(0, 6).toUpperCase();
@@ -251,6 +252,14 @@ public class FulfillmentServiceImpl extends ServiceImpl<FulfillmentMapper, Fulfi
         fulfillment.setShippingAddress(request.getShippingAddress());
         fulfillment.setEstimatedDelivery(request.getEstimatedDelivery());
         fulfillment.setStatus("PENDING"); // 初始状态为待发货
+
+        // 添加初始物流轨迹记录
+        ShipmentTrack initialTrack = new ShipmentTrack();
+        initialTrack.setFulfillmentId(fulfillmentId);
+        initialTrack.setLocation("发货仓");
+        initialTrack.setDescription("订单已创建发货单，等待处理");
+        initialTrack.setTrackTime(LocalDateTime.now());
+        shipmentTrackMapper.insert(initialTrack);
 
         fulfillmentMapper.insert(fulfillment);
 

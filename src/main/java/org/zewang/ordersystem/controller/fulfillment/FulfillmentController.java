@@ -28,7 +28,7 @@ import org.zewang.ordersystem.service.fulfillment.FulfillmentService;
  */
 
 @RestController
-@RequestMapping("/api/fulfillments")
+@RequestMapping("/api/fulfillment")
 @RequiredArgsConstructor
 public class FulfillmentController {
 
